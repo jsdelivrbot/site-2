@@ -1,7 +1,7 @@
 .appHeader{
     position: relative;
     background: cornflowerblue;
-    padding: 8px 12px 0 37px;
+    padding: 0 12px 0 37px
 
     ul{
         list-style: none;
@@ -9,6 +9,7 @@
 }
 
 .avatar{
+    margin: .3rem;
     width: 50px;
     height: 50px;
     left: 20%;
@@ -45,6 +46,18 @@
 }
 
 .menuList{
+    margin: 0 0 0 55%;
+    width: 100%;
     padding : 0;
-    margin: 0;
+}
+
+.menuItem{
+    line-height: 2.5rem;
+    display: inline-block;
+    width: 6rem;
+    text-align: center;
+
+    &.active{
+        background-color: rgba(0,0,0,0.2);
+    }
 }

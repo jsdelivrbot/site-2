@@ -9,9 +9,11 @@ export default class App extends Component{
         return (
             <div className={styles.app}>
                 <Header/>
+                <div className={styles.content}>
                 {
                     this.props.children
                 }
+                </div>
             </div>)
     }
 }

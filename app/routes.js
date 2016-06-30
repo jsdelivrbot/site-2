@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, browserHistory,IndexRoute } from 'react-router'
-
+import { ReduxRouter } from 'redux-router'
 import Main from './container/main.jsx'
 import App from './container/app.jsx'
 import Home from './container/home.jsx'

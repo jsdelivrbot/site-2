@@ -38,7 +38,7 @@ var config = merge(common,
     parts.images(),
     parts.extractBundle({
             name: 'vendor',
-            entries: ['react','lodash','react-dom']
+            entries: ['react','redux','react-redux','lodash','react-dom','react-router',"whatwg-fetch",'marked','redux-thunk']
           })
     );
 

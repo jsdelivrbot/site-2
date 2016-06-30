@@ -1,17 +1,31 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import classes from 'classnames'
+import { connect } from 'react-redux'
 
-export default class Header extends Component{
+class Header extends Component{
 
     constructor(props){
         super(props);
+
+        const path = props.routing.locationBeforeTransitions.pathname;
+
         this.state = {
             touchingAvatar: false,
-            rotateRight: true
+            rotateRight: true,
+            path
         }
-        this.touchAvatar = this.touchAvatar.bind(this)
-        this.unTouchAvatar = this.unTouchAvatar.bind(this)
+
+        this.touchAvatar = this.touchAvatar.bind(this);
+        this.unTouchAvatar = this.unTouchAvatar.bind(this);
+    }
+
+    componentWillReceiveProps(props){
+        const path = props.routing.locationBeforeTransitions.pathname;
+        console.log(path);
+        this.setState({
+            path
+        });
     }
 
     touchAvatar(event){
@@ -28,6 +42,16 @@ export default class Header extends Component{
         })
     }
 
+    renderItems(style){
+        const { path } = this.state;
+
+        return (
+         <ul className={style.menuList}>
+            <li className={ style.menuItem+" "+ (path==='/blogs'? style.active : "")} ><Link to="/blogs">Blogs</Link></li>
+            <li className={ style.menuItem+" "+ (path==='/about'? style.active :"" )}><Link to="/about">About</Link></li>
+         </ul>)
+    }
+
     render(){
           const jing = require("../../static/images/jing.jpg");
           const url = "url('" + jing + "')";
@@ -39,7 +63,6 @@ export default class Header extends Component{
           }
 
           return (
-
               <div className={style.appHeader}>
                 <div className={avatarClasses} style={{backgroundImage: url}}
                     onTouchStart={this.touchAvatar}
@@ -48,13 +71,26 @@ export default class Header extends Component{
                     onMouseLeave={this.unTouchAvatar}
                     >
                 </div>
-                <div className={style.sayHello}>Hey there!</div>
 
-                <ul className={style.menuList}>
-                  <li><Link to="/about">About</Link></li>
-                  <li><Link to="/blogs">Blogs</Link></li>
-                </ul>
+                <div>Jing Guo</div>
+
+                {this.renderItems(style)}
               </div>
           )
     }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    routing: state.routing
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
+
