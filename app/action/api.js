@@ -1,7 +1,6 @@
-import fetch from 'whatwg-fetch';
 export default (url) => {
     return {
-        post: (data)=> fetch('/users', {
+        post: (data)=> fetch(url, {
                         method: 'POST',
                         headers: {
                           'Accept': 'application/json',
@@ -10,7 +9,7 @@ export default (url) => {
                         body: JSON.stringify(data)
                       }),
         get: ()=> fetch(url),
-        update: (data)=>fetch('/users', { method: 'UPDATE',
+        update: (data)=>fetch(url, { method: 'UPDATE',
                                                 headers: {
                                                   'Accept': 'application/json',
                                                   'Content-Type': 'application/json'

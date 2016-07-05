@@ -22,7 +22,6 @@ class Header extends Component{
 
     componentWillReceiveProps(props){
         const path = props.routing.locationBeforeTransitions.pathname;
-        console.log(path);
         this.setState({
             path
         });
@@ -72,7 +71,11 @@ class Header extends Component{
                     >
                 </div>
 
-                <div>Jing Guo</div>
+                <div className={style.searchBar}>
+                    <div className={style.searchInput}>
+                        <input  type="text" placeholder="Search on blogs"/>
+                    </div>
+                </div>
 
                 {this.renderItems(style)}
               </div>

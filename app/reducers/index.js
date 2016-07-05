@@ -1,4 +1,1 @@
-export default function(){
-    return function(){
-    }
-}
+export weather from './weather'

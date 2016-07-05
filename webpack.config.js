@@ -28,7 +28,7 @@ const common = {
     new HtmlWebpackPlugin({
       template: "./index.html",
       title: 'Webpack demo'
-    })
+    }),
   ]
 };
 
@@ -38,7 +38,7 @@ var config = merge(common,
     parts.images(),
     parts.extractBundle({
             name: 'vendor',
-            entries: ['react','redux','react-redux','lodash','react-dom','react-router',"whatwg-fetch",'marked','redux-thunk']
+            entries: ['react','redux','react-redux','lodash','react-dom','react-router',"whatwg-fetch",'marked','redux-thunk','es6-promise','isomorphic-fetch']
           })
     );
 

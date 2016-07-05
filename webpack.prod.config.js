@@ -20,8 +20,8 @@ const common = {
   },
   output: {
     path: PATHS.build,
-    filename: '[name].[hash].js',
-    chunkFilename: '[hash].js'
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[chunkhash].js'
   },
   plugins: [
     new ExtractTextPlugin('bundle.css'),
@@ -29,8 +29,7 @@ const common = {
       template: "./index.html",
       title: 'Webpack demo'
     }),
-//    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.optimize.DedupePlugin(),
   ]
 };
 
@@ -40,10 +39,9 @@ var config = merge(common,
     parts.babel(),
     parts.images(),
     parts.extractBundle({
-            name: 'vendor',
-            entries: ['react','lodash','react-dom','react-motion']
-          }),
-    parts.assets(PATHS.assets),
+               name: 'vendor',
+               entries: ['react','redux','react-redux','lodash','react-dom','react-router',"whatwg-fetch",'marked','redux-thunk','es6-promise','isomorphic-fetch']
+             }),
     parts.minify()
 );
 

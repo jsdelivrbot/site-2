@@ -1,7 +1,8 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
 import { routerReducer, routerMiddleware } from 'react-router-redux'
 import thunk from 'redux-thunk'
-import reducers from './index'
+import * as reducers from './reducers'
+import createLogger from 'redux-logger';
 
 export default (initialState = {}, history) => {
 
@@ -16,6 +17,7 @@ export default (initialState = {}, history) => {
     compose(
       applyMiddleware(
         thunk,
+        createLogger(),
         routerMiddleware(history)
       )
     )

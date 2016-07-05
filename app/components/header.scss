@@ -1,10 +1,31 @@
 .appHeader{
-    position: relative;
-    background: cornflowerblue;
-    padding: 0 12px 0 37px
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: #42424c;
+    z-index: 999;
+    display: flex;
 
     ul{
         list-style: none;
+    }
+}
+
+.searchBar{
+    flex: 1;
+    text-align: right;
+    margin-right: 1rem;
+}
+
+.searchInput{
+    line-height:1.2rem;
+    position: Relative;
+    top: 15px;
+
+    input{
+        line-height: 1.2rem;
+        border: none;
+        width: 60%;
     }
 }
 
@@ -12,7 +33,7 @@
     margin: .3rem;
     width: 50px;
     height: 50px;
-    left: 20%;
+    left: 8%;
     box-shadow: 2px 2px 10px #111;
     background-repeat: no-repeat;
     position: absolute;
@@ -21,13 +42,9 @@
     background-position: center center;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 9999;
 }
 
-.sayHello{
-    position: absolute;
-    left: 30%;
-    width: 100px;
-}
 
 .rightRotate{
     width: 100px;
@@ -46,18 +63,22 @@
 }
 
 .menuList{
-    margin: 0 0 0 55%;
+    flex: 1;
+    margin: 0;
     width: 100%;
     padding : 0;
 }
 
 .menuItem{
-    line-height: 2.5rem;
+    line-height: 3rem;
     display: inline-block;
-    width: 6rem;
+    width: 7rem;
     text-align: center;
 
     &.active{
         background-color: rgba(0,0,0,0.2);
+        a{
+            color: #63c9ea;
+        }
     }
 }
