@@ -8,7 +8,7 @@ const config = require('./webpack.config.js');
 //const isDeveloping = process.env.NODE_ENV !== 'production';
 const isDeveloping = process.argv[2] !== 'production';
 
-const port = isDeveloping ? 3000 : 8080;
+const port = isDeveloping ? 3000 : 3000;
 const app = express();
 
 if (isDeveloping) {
@@ -35,8 +35,6 @@ if (isDeveloping) {
 } else {
   app.use(express.static(__dirname + '/build'));
   app.get('*', function response(req, res) {
-
-    console.log("what the")
     res.status(200).sendFile(path.join(__dirname, 'build/index.html'));
     res.end();
   });

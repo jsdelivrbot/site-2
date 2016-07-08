@@ -2,14 +2,10 @@ import api from './api'
 import config from '../config'
 import { weather } from './constants'
 
-
-const weatherQuery = "weather?q="
-const forecastQuery = "forecast?q="
-
 export function fetchWeather(cityName) {
     return (dispatch) => {
 
-        return api(config.weatherApiHost + weatherQuery + cityName + "&APPID=" +config.weatherApiKey).get()
+        return api('api/weather?city=' + cityName ).get()
             .then( data => {
                     data.json().then(json => dispatch(receiveWeather(json)))
                 }
@@ -21,7 +17,7 @@ export function fetchWeather(cityName) {
 export function fetchWeatherForecast(cityName) {
     return (dispatch) => {
 
-        return api(config.weatherApiHost + forecastQuery + cityName + "&APPID=" +config.weatherApiKey).get()
+        return api('api/weather_forecast?city=' + cityName).get()
             .then( data => {
                     data.json().then(json => dispatch(receiveWeatherForecast(json)))
                 }

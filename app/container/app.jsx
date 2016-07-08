@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../components/header.jsx'
-import Weather from '../components/weather.jsx'
+import Weather from '../components/weather/weather.jsx'
 import { connect } from 'react-redux'
 
 class App extends Component{

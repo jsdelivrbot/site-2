@@ -9,9 +9,9 @@ export const weather = {
 
 export const blogs = {
     FETCH_ALL : "FETCH_ALL",
-    RECEIVE_ALL: "RECEIVE_ALL",
+    RECEIVE_ALL: "RECEIVE_ALL_BLOGS",
     FAIL_RECEIVE_ALL: "FAIL_RECEIVE_ALL",
     FETCH : "FETCH",
-    RECEIVE: "RECEIVE",
-    FAIL_RECEIVE: "FAIL_RECEIVE",
+    RECEIVE: "RECEIVE_BLOG",
+    FAIL_RECEIVE: "FAIL_RECEIVE_BLOG",
 }

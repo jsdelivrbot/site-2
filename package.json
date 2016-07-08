@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node 'server.js'",
-    "prod": "webpack --config './webpack.prod.config.js' && node 'server.js' production"
+    "prod": "export NODE_ENV=production && webpack --config './webpack.prod.config.js' && NODE_ENV=production node 'server.js' production"
   },
   "author": "Jing",
   "license": "ISC",
