@@ -4,19 +4,18 @@ import style from './dashboard.scss'
 import { connect } from 'react-redux'
 
 class DashBoard extends Component{
-
     componentWillMount(){
         if(!localStorage.token){
-            this.props.history.replace("/admin/login")
+            this.context.router.replace("/admin/login")
         }else{
-            this.props.history.replace("/admin/blogs")
+            this.context.router.replace(this.props.location.pathname)
         }
     }
 
     renderHeader(){
         return (<div className= { style.header }>
-                    <Link className="what" to='/admin/blogs'>Admin Blogs</Link>
-                    <Link className="what" to='/admin/statics'>Statics</Link>
+                    <Link className= { style.tabs } to='/admin/blogs'>Manage Blogs</Link>
+                    <Link className= { style.tabs } to='/admin/statics'>Statics</Link>
                 </div>)
     }
 
@@ -24,8 +23,14 @@ class DashBoard extends Component{
         return (
                 <div className={ style.admin }>
                     { this.renderHeader() }
+                    <div className={ style.content }>
                     { this.props.children }
+                    </div>
                 </div>)}
 }
+
+DashBoard.contextTypes = {
+    router: React.PropTypes.object.isRequired
+};
 
 export default connect()(DashBoard)

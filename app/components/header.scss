@@ -1,8 +1,10 @@
+@import '../container/variables.scss';
+
 .appHeader{
     position: fixed;
     width: 100%;
     top: 0;
-    background: #42424c;
+    background: $headerColor;
     z-index: 999;
     display: flex;
 

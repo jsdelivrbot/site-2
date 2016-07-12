@@ -31,7 +31,7 @@ export default function(history,store){
 
              <Route path="/admin"  component={ DashBoard }>
                 <Route path="/admin/blogs" component={ AdminBlogs } />
-                <Route path="/admin/statics" Route={ Statics } />
+                <Route path="/admin/statics" component={ Statics } />
              </Route>
 
              <Route path="/admin/login" component={Login} />
