@@ -17,11 +17,17 @@ export default class Blogs extends Component{
     }
 
     componentWillReceiveProps(nextProps){
-        console.log("__________Receive props ",nextProps)
     }
 
     renderBlogs(){
-        return this.props.blogs ? this.props.blogs.map(b => <BlogBox key={b.id} title={b.title} tags={b.tags} markdown={b.markdown} time={b.cTime}/>) : null
+        return this.props.blogs ?
+            this.props.blogs.map(b => <BlogBox
+                key={b.id} title={b.title}
+                tags={b.tags}
+                markdown={b.markdown}
+                createdTime={b.createdTime}
+                comments={b.comments}
+                />) : null
     }
 
     render(){

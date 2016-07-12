@@ -2,14 +2,25 @@ import React, { Component } from 'react'
 import Header from '../components/header.jsx'
 import Weather from '../components/weather/weather.jsx'
 import { connect } from 'react-redux'
+import fonts from './fonts.scss'
+import styles from './app.scss'
 
 class App extends Component{
 
-    render(){
-        const styles = require('./app.scss');
+    componentDidMount(){
+        window.addEventListener("resize", (param) => emitter.emit("window-resize", param));
+        emitter.addListener("window-resize", this.resize)
+    }
 
+    resize(window){
+        window.isDesktop = window.innerWidth > 750
+        window.isTablet = window.innerWidth <= 750 &&  window.innerWidth > 550
+        window.isMobile = window.innerWidth <= 550;
+    }
+
+    render(){
         return (
-            <div className={styles.app}>
+            <div className={styles.app +"  "+fonts.ansonregular}>
                 <Header/>
                 <div className={styles.main}>
                     <Weather />

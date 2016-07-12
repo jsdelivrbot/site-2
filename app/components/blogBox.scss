@@ -6,6 +6,7 @@
     padding: 1rem;
     margin: .5rem 0 .5rem 0;
     min-width: 370px;
+    color: #656363;
 }
 
 .content{
@@ -26,4 +27,17 @@
 .paragraph{
     margin: 1rem 0 1rem 0;
     color: $blogContentColor;
+}
+
+.tags {
+}
+
+.tag {
+    font-size: .8rem;
+    min-width: 100px;
+    line-height: 2rem;
+    margin-right: .5rem;
+    text-align: center;
+    padding: .4rem;
+    border-radius: 5px;
 }

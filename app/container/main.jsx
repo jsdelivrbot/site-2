@@ -7,7 +7,7 @@ export default class Main extends Component{
     render(){
           return (
               <div className="main">
-                This is piece of shit
+                <video src="http://localhost:8080/api/video" autoPlay loop></video>
               </div>
           )
     }

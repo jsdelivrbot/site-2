@@ -19,6 +19,7 @@ const common = {
     vendor: ['react']
   },
   output: {
+    publicPath: '/',
     path: PATHS.build,
     filename: '[name].[chunkhash].js',
     chunkFilename: '[chunkhash].js'
@@ -35,10 +36,17 @@ const common = {
 var config = merge(common,
     parts.setupCSS(PATHS.assets),
     parts.babel(),
+    parts.fonts(),
     parts.images(),
     parts.extractBundle({
             name: 'vendor',
-            entries: ['react','redux','react-redux','lodash','react-dom','react-router',"whatwg-fetch",'marked','redux-thunk','es6-promise','isomorphic-fetch']
+            entries: ['react','redux',
+                      'react-redux','lodash',
+                      'react-dom','react-router',
+                      "whatwg-fetch",'marked',
+                      'redux-thunk','es6-promise',
+                      'isomorphic-fetch','wolfy87-eventemitter'
+                      ]
           })
     );
 

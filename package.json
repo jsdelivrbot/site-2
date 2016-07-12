@@ -50,7 +50,8 @@
     "webpack-isomorphic-tools": "^2.3.2",
     "webpack-merge": "^0.14.0",
     "webpack-validator": "^2.2.1",
-    "whatwg-fetch": "^1.0.0"
+    "whatwg-fetch": "^1.0.0",
+    "wolfy87-eventemitter": "^5.1.0"
   },
   "dependencies": {
     "history": "^3.0.0",

@@ -4,6 +4,12 @@ $blogContentColor: #6b6b6b;
 $tablet-width: 768px;
 $desktop-width: 1024px;
 
+$yellow: #f3eb54;
+$orange: #f69a33;
+$blue: #2eacb3;
+$gray_blue: #b3ccba;
+$red: #e84f5e;
+
 @mixin mobile {
   @media (max-width: #{$tablet-width}) {
     @content;

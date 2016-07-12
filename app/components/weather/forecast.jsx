@@ -14,7 +14,7 @@ class Forecast extends Cell {
         return (<div className={style.forecastCell}>
                     <div className={style.icon}>{ super.icon(this.props.weatherType) }</div>
 
-                    <div>{d.getMonth()}/{d.getDate()}</div>
+                    <div>{d.getMonth() + 1}/{d.getDate()}</div>
                     <div>{d.getHours()}:00</div>
                     <div className={style.temperature}>
                         {super.calTemperature(this.props.minTemp, this.props.celsius)}~{super.calTemperature(this.props.maxTemp,this.props.celsius)}
