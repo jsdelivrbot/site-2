@@ -15,3 +15,8 @@ export const blogs = {
     RECEIVE: "RECEIVE_BLOG",
     FAIL_RECEIVE: "FAIL_RECEIVE_BLOG",
 }
+
+export const loginConstants = {
+    LOGIN_SUCCEED: "LOGIN_SUCCEED",
+    LOGIN_FAILED: "LOGIN_FAILED"
+}

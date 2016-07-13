@@ -10,11 +10,11 @@ export default (url) => {
                       }),
         get: ()=> fetch(url),
         update: (data)=>fetch(url, { method: 'UPDATE',
-                                                headers: {
-                                                  'Accept': 'application/json',
-                                                  'Content-Type': 'application/json'
-                                                },
-                                                body: JSON.stringify(data)
-                                              })
+                        headers: {
+                          'Accept': 'application/json',
+                          'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                      })
     }
 }

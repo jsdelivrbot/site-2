@@ -6,10 +6,25 @@ import { connect } from 'react-redux'
 
 class Login extends Component{
 
+    static propTypes = {
+        loginInfo: PropTypes.object.isRequired
+    }
+
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    }
+
     constructor(props){
         super(props)
         this.login = this.login.bind(this)
         this.logout = this.logout.bind(this)
+    }
+
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps.loginInfo && nextProps.loginInfo.loggedIn ){
+            this.context.router.replace("/admin")
+        }
     }
 
     login(){
@@ -20,7 +35,7 @@ class Login extends Component{
     }
 
     logout(){
-
+        this.props.dispatch(logout())
     }
 
     render(){
@@ -42,9 +57,7 @@ class Login extends Component{
     }
 }
 
-Login.propTypes = {
-    loggedIn: PropTypes.bool.isRequired
-}
 
-
-export default connect(state => state.loggedIn)(Login)
+export default connect(state => {
+    return {loginInfo : state.loginInfo}
+})(Login)

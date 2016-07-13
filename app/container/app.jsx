@@ -4,12 +4,12 @@ import Weather from '../components/weather/weather.jsx'
 import { connect } from 'react-redux'
 import fonts from './fonts.scss'
 import styles from './app.scss'
+import { register } from '../eventEmitter'
 
 class App extends Component{
 
     componentDidMount(){
-        window.addEventListener("resize", (param) => emitter.emit("window-resize", param));
-        emitter.addListener("window-resize", this.resize)
+        register("window_resize", this.resize)
     }
 
     resize(window){

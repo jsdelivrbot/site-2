@@ -40,7 +40,6 @@ function receiveWeather(data, err){
 }
 
 function receiveWeatherForecast(forecast, err){
-    console.log("receiveWeatherForecast ", forecast, err)
     if(err){
         return {
             type: weather.FAIL_RECEIVE_FORECAST,

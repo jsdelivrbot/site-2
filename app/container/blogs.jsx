@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import BlogBox from '../components/blogBox.jsx';
 import { retrieveBlogs, getBlog } from '../action/blogs'
 import { connect } from 'react-redux'
+import { register } from '../eventEmitter'
 
 export default class Blogs extends Component{
 
@@ -13,10 +14,16 @@ export default class Blogs extends Component{
     }
 
     componentDidMount(){
+        register( "window_scroll", this.handleScroll )
         this.props.dispatch(retrieveBlogs(0))
     }
 
     componentWillReceiveProps(nextProps){
+    }
+
+    handleScroll(pos){
+        const {top, left} = pos
+        //add scroll to bottom logic
     }
 
     renderBlogs(){
@@ -27,6 +34,7 @@ export default class Blogs extends Component{
                 markdown={b.markdown}
                 createdTime={b.createdTime}
                 comments={b.comments}
+                link={ "/blog/" + b.id }
                 />) : null
     }
 
@@ -36,6 +44,7 @@ export default class Blogs extends Component{
 }
 
 Blogs.propTypes = {
+
     blogs: PropTypes.array
 }
 
