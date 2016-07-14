@@ -18,7 +18,7 @@ export function getBlog(state = blog, action) {
 
 	switch (action.type) {
         case blogs.RECEIVE:
-            return Object.assign({}, state, action.blog)
+            return action.blog
         case blogs.FAIL_RECEIVE:
             return Object.assign({}, state, action.data)
 		default:

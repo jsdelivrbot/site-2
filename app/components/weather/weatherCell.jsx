@@ -21,7 +21,8 @@ export default class Cell extends Component {
                 return getWeatherIcon("sunny")
             case "snow":
                 return getWeatherIcon("snow")
-
+            case "rain":
+                return getWeatherIcon("rain")
             default:
                 return getWeatherIcon("clouds")
         }

@@ -34,6 +34,7 @@ export default function(history,store){
 
              <Route path="/admin"  component={ DashBoard }>
                 <Route path="/admin/blogs" component={ AdminBlogs } />
+                <Route path="/admin/create" component={ EditBlog } />
                 <Route path="/admin/edit/:blogId" component={ EditBlog } />
                 <Route path="/admin/statics" component={ Statics } />
              </Route>

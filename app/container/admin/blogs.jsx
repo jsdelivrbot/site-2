@@ -8,8 +8,12 @@ import BlogBox from '../../components/blogBox.jsx';
 class AdminBlogs extends Component{
 
     static propTypes = {
-               blogs: PropTypes.array
-           }
+        blogs: PropTypes.array
+    }
+
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired
+    }
 
     componentDidMount(){
         register( "window_scroll", this.handleScroll )
