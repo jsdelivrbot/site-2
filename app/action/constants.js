@@ -12,8 +12,8 @@ export const blogs = {
     RECEIVE_ALL: "RECEIVE_ALL_BLOGS",
     FAIL_RECEIVE_ALL: "FAIL_RECEIVE_ALL",
     FETCH : "FETCH",
-    RECEIVE: "RECEIVE_BLOG",
-    FAIL_RECEIVE: "FAIL_RECEIVE_BLOG",
+    RECEIVE_BLOG: "RECEIVE_BLOG",
+    FAIL_RECEIVE_BLOG: "FAIL_RECEIVE_BLOG",
 }
 
 export const loginConstants = {

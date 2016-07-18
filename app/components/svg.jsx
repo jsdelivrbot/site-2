@@ -12,13 +12,16 @@ class SVG extends Component{
 
     render(){
         const { content, width, height, viewBox, strokeColor, fillColor } = this.state;
+        const { classes } = this.props;
+
+        console.log(classes)
 
         return content ?
         (<svg version="1.1"
-            viewBox="0 0 24 24"
             viewBox={viewBox}
             width={width}
             height={height}
+            className={ classes }
             style={{stroke : strokeColor, fill: fillColor}}
             dangerouslySetInnerHTML={{__html: content}}>
         </svg>) : null
@@ -50,6 +53,7 @@ SVG.propTypes = {
     svgFile: PropTypes.string.isRequired,
     strokeColor: PropTypes.string,
     fillColor: PropTypes.string,
+    classes: PropTypes.string,
     width: PropTypes.string,
     height: PropTypes.string
 }

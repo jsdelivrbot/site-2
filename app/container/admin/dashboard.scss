@@ -6,6 +6,7 @@
     background-color: $headerColor;
     display: flex;
     top: 0;
+    z-index: 999;
 }
 
 .tabs{

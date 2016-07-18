@@ -8,14 +8,14 @@ export default class Blogs extends Component{
 
     constructor(props){
         super(props);
-        this.state = {
-        }
+        this.state = {}
         this.renderBlogs = this.renderBlogs.bind(this);
     }
 
     componentDidMount(){
         register( "window_scroll", this.handleScroll )
-        this.props.dispatch(retrieveBlogs(0))
+        if(!this.props.blogs.initLoad)
+            this.props.dispatch(retrieveBlogs(0))
     }
 
     componentWillReceiveProps(nextProps){
@@ -27,14 +27,14 @@ export default class Blogs extends Component{
     }
 
     renderBlogs(){
-        return this.props.blogs ?
-            this.props.blogs.map(b => <BlogBox
+        return this.props.blogs.items ?
+            this.props.blogs.items.map(b => <BlogBox
                 key={b.id} title={b.title}
                 tags={b.tags}
                 markdown={b.markdown}
                 createdTime={b.createdTime}
                 comments={b.comments}
-                link={ "/blog/" + b.id }
+                link={ "/blog/" + b._id }
                 />) : null
     }
 
@@ -45,7 +45,7 @@ export default class Blogs extends Component{
 
 Blogs.propTypes = {
 
-    blogs: PropTypes.array
+    blogs: PropTypes.object
 }
 
 export default connect((state) => { return { blogs: state.blogs }})(Blogs);

@@ -3,7 +3,7 @@ import Header from '../components/header.jsx'
 import Weather from '../components/weather/weather.jsx'
 import { connect } from 'react-redux'
 import fonts from './fonts.scss'
-import styles from './app.scss'
+//import styles from './app.scss'
 import { register } from '../eventEmitter'
 
 class App extends Component{
@@ -19,6 +19,8 @@ class App extends Component{
     }
 
     render(){
+        const styles = require('./app.scss');
+
         return (
             <div className={styles.app +"  "+fonts.ansonregular}>
                 <Header/>
